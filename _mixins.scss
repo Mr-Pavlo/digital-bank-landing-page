@@ -1,0 +1,27 @@
+@use "variables";
+
+@mixin button-invite ($padding, $border-radius) {
+    background: linear-gradient(15deg, variables.$primary-cyan 0%, variables.$primary-green 100%);
+    color: variables.$neutral-white;
+    border: none;
+    border-radius: $border-radius;
+    padding: $padding;
+    transition: opacity 0.15s ease-out;
+    font-weight: variables.$font-weight-500;
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+@mixin head ($font-size) {
+    font-size: $font-size;
+    text-align: center;
+    font-weight: variables.$font-weight-400;
+    color: variables.$primary-blue;
+}
+
+@mixin paragraph ($font-size) {
+    color: variables.$neutral-gray-600;
+    text-align: center;
+    font-size: $font-size;
+}

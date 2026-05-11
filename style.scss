@@ -1,0 +1,331 @@
+@use "variables";
+@use "mixins";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: variables.$font-family-primary;
+    font-size: variables.$body-size;
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    background-color: variables.$neutral-white;
+    z-index: 100;
+    width: 100%;
+    padding: 10px 20px;
+
+    a {
+        text-decoration: none;
+    }
+
+    .btn-invite {
+        display: none;
+    }
+}
+
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    cursor: pointer;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    .icon-close {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 62px;
+    left: 24px;
+    right: 24px;
+    background-color: variables.$neutral-white;
+    border-radius: 4px;
+    z-index: 90;
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    li a {
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+        color: variables.$primary-blue;
+        text-decoration: none;
+
+        &:active {
+            background-color: variables.$neutral-gray-600;
+            color: variables.$neutral-white;
+        }
+    }
+}
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(45, 49, 77, 0.65), transparent);
+    z-index: 80;
+}
+
+body:has(#menu-toggle:checked) {
+    .mobile-menu {
+        display: block;
+    }
+
+    .menu-overlay {
+        display: block;
+    }
+
+    .icon-hamburger {
+        display: none;
+    }
+
+    .icon-close {
+        display: block;
+    }
+}
+
+.banking-hero {
+    padding-top: 42px;
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+}
+
+.hero-img {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    background: url(src/img/bg-intro-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 -68px;
+    
+    overflow: hidden;
+
+    margin-bottom: -90px;
+    
+    img {
+        width: 90%;
+        transform: translateY(-120px);
+    }
+}
+
+.hero-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px 50px 20px;
+
+
+    h1 {
+        @include mixins.head(45px);
+    }
+    p {
+        @include mixins.paragraph(14.5px);
+    }
+    a {
+        @include mixins.button-invite(15px 30px, 25px);
+        text-decoration: none;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}
+
+.banking-features {
+    scroll-margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    background-color: variables.$neutral-gray-100;
+    gap: 50px;
+    padding: 50px 20px;
+
+    .features-desc {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    h2 {
+        @include mixins.head(35px);
+    }
+
+    p {
+        @include mixins.paragraph(14.5px);
+    }
+
+    h3 {
+        @include mixins.head(30px);
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        img {
+            width: 20%;
+            margin-bottom: 10px;
+        }
+    }
+
+}
+
+.banking-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 20px;
+    background-color: variables.$neutral-gray-50;
+    scroll-margin-top: 42px;
+
+    h4 {
+        @include mixins.head(25px);
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    li {
+        background-color: variables.$neutral-white;
+        border-radius: 0 0 5px 5px;
+    }
+
+    figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        figcaption {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 30px;
+        }
+
+        img {
+            width: 100%;
+            max-height: 190px;
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+        }
+
+        h5 {
+            @include mixins.head(16px);
+            text-align: left;
+        }
+
+        span {
+            @include mixins.paragraph(10px);
+            text-align: left;
+        }
+
+        p {
+            @include mixins.paragraph(14.5px);
+            text-align: left;
+            max-width: 320px;
+            padding-bottom: 20px;;
+        }
+    }
+}
+
+.banking-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: variables.$primary-blue;
+    padding: 50px 20px;
+    scroll-margin-top: 42px;
+    gap: 30px;
+
+    .logo-footer {
+        min-width: 200px;
+        max-width: 300px;
+    }
+
+    .social-media {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        list-style: none;
+        align-items: center;
+
+        .social-icon {
+            min-width: 30px;
+            max-width: 70px;
+        }
+    }
+
+    .nav-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        list-style: none;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: variables.$neutral-gray-100;
+            transition: color 0.2s ease-out;
+            
+            &:active {
+                color: variables.$primary-green;
+            }
+        }
+    }
+
+    .btn-invite {
+        @include mixins.button-invite(12px 32px, 30px);
+        text-decoration: none;
+        margin-top: 10px;
+        transition: filter 0.2s ease-out;
+        
+        &:hover {
+            opacity: 1;
+            
+        }
+        &:active {
+            filter: brightness(110%);
+        }
+    }
+
+    p {
+        color: variables.$neutral-gray-600;
+        font-size: 14px;
+    }
+}

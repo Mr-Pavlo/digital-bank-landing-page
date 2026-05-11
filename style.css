@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-items: center;
+  top: 0;
+  background-color: hsl(0, 100%, 100%);
+  z-index: 100;
+  width: 100%;
+  padding: 10px 20px;
+}
+header a {
+  text-decoration: none;
+}
+header .btn-invite {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-btn {
+  cursor: pointer;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.menu-btn .icon-close {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 62px;
+  left: 24px;
+  right: 24px;
+  background-color: hsl(0, 100%, 100%);
+  border-radius: 4px;
+  z-index: 90;
+}
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+.mobile-menu li a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  color: hsl(233, 26%, 24%);
+  text-decoration: none;
+}
+.mobile-menu li a:active {
+  background-color: hsl(233, 8%, 62%);
+  color: hsl(0, 100%, 100%);
+}
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(45, 49, 77, 0.65), transparent);
+  z-index: 80;
+}
+
+body:has(#menu-toggle:checked) .mobile-menu {
+  display: block;
+}
+body:has(#menu-toggle:checked) .menu-overlay {
+  display: block;
+}
+body:has(#menu-toggle:checked) .icon-hamburger {
+  display: none;
+}
+body:has(#menu-toggle:checked) .icon-close {
+  display: block;
+}
+
+.banking-hero {
+  padding-top: 42px;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+}
+
+.hero-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: url(src/img/bg-intro-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -68px;
+  overflow: hidden;
+  margin-bottom: -90px;
+}
+.hero-img img {
+  width: 90%;
+  transform: translateY(-120px);
+}
+
+.hero-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px 50px 20px;
+}
+.hero-desc h1 {
+  font-size: 45px;
+  text-align: center;
+  font-weight: 400;
+  color: hsl(233, 26%, 24%);
+}
+.hero-desc p {
+  color: hsl(233, 8%, 62%);
+  text-align: center;
+  font-size: 14.5px;
+}
+.hero-desc a {
+  background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+  color: hsl(0, 100%, 100%);
+  border: none;
+  border-radius: 25px;
+  padding: 15px 30px;
+  transition: opacity 0.15s ease-out;
+  font-weight: 500;
+}
+.hero-desc a:hover {
+  opacity: 0.6;
+}
+.hero-desc a {
+  text-decoration: none;
+}
+.hero-desc a:hover {
+  opacity: 0.6;
+}
+
+.banking-features {
+  scroll-margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(220, 16%, 96%);
+  gap: 50px;
+  padding: 50px 20px;
+}
+.banking-features .features-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.banking-features h2 {
+  font-size: 35px;
+  text-align: center;
+  font-weight: 400;
+  color: hsl(233, 26%, 24%);
+}
+.banking-features p {
+  color: hsl(233, 8%, 62%);
+  text-align: center;
+  font-size: 14.5px;
+}
+.banking-features h3 {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 400;
+  color: hsl(233, 26%, 24%);
+}
+.banking-features ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.banking-features ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.banking-features ul img {
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.banking-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 20px;
+  background-color: hsl(0, 0%, 98%);
+  scroll-margin-top: 42px;
+}
+.banking-articles h4 {
+  font-size: 25px;
+  text-align: center;
+  font-weight: 400;
+  color: hsl(233, 26%, 24%);
+}
+.banking-articles ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.banking-articles li {
+  background-color: hsl(0, 100%, 100%);
+  border-radius: 0 0 5px 5px;
+}
+.banking-articles figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.banking-articles figure figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 30px;
+}
+.banking-articles figure img {
+  width: 100%;
+  max-height: 190px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+.banking-articles figure h5 {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400;
+  color: hsl(233, 26%, 24%);
+  text-align: left;
+}
+.banking-articles figure span {
+  color: hsl(233, 8%, 62%);
+  text-align: center;
+  font-size: 10px;
+  text-align: left;
+}
+.banking-articles figure p {
+  color: hsl(233, 8%, 62%);
+  text-align: center;
+  font-size: 14.5px;
+  text-align: left;
+  max-width: 320px;
+  padding-bottom: 20px;
+}
+
+.banking-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(233, 26%, 24%);
+  padding: 50px 20px;
+  scroll-margin-top: 42px;
+  gap: 30px;
+}
+.banking-footer .logo-footer {
+  min-width: 200px;
+  max-width: 300px;
+}
+.banking-footer .social-media {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+}
+.banking-footer .social-media .social-icon {
+  min-width: 30px;
+  max-width: 70px;
+}
+.banking-footer .nav-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style: none;
+  align-items: center;
+}
+.banking-footer .nav-footer a {
+  text-decoration: none;
+  color: hsl(220, 16%, 96%);
+  transition: color 0.2s ease-out;
+}
+.banking-footer .nav-footer a:active {
+  color: hsl(136, 64%, 51%);
+}
+.banking-footer .btn-invite {
+  background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+  color: hsl(0, 100%, 100%);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 32px;
+  transition: opacity 0.15s ease-out;
+  font-weight: 500;
+}
+.banking-footer .btn-invite:hover {
+  opacity: 0.6;
+}
+.banking-footer .btn-invite {
+  text-decoration: none;
+  margin-top: 10px;
+  transition: filter 0.2s ease-out;
+}
+.banking-footer .btn-invite:hover {
+  opacity: 1;
+}
+.banking-footer .btn-invite:active {
+  filter: brightness(110%);
+}
+.banking-footer p {
+  color: hsl(233, 8%, 62%);
+  font-size: 14px;
+}/*# sourceMappingURL=style.css.map */
