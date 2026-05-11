@@ -21,25 +21,22 @@ header {
 header a {
   text-decoration: none;
 }
+header .menu-toggle {
+  display: none;
+}
 header .btn-invite {
   display: none;
 }
-
-.menu-toggle {
-  display: none;
-}
-
-.menu-btn {
+header .menu-btn {
   cursor: pointer;
   margin-left: auto;
   display: flex;
   align-items: center;
 }
-.menu-btn .icon-close {
+header .menu-btn .icon-close {
   display: none;
 }
-
-.mobile-menu {
+header .mobile-menu {
   display: none;
   position: fixed;
   top: 62px;
@@ -49,20 +46,20 @@ header .btn-invite {
   border-radius: 4px;
   z-index: 90;
 }
-.mobile-menu ul {
+header .mobile-menu ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   padding: 20px 0;
 }
-.mobile-menu li a {
+header .mobile-menu li a {
   display: block;
   text-align: center;
   padding: 10px 0;
   color: hsl(233, 26%, 24%);
   text-decoration: none;
 }
-.mobile-menu li a:active {
+header .mobile-menu li a:active {
   background-color: hsl(233, 8%, 62%);
   color: hsl(0, 100%, 100%);
 }
@@ -94,8 +91,7 @@ body:has(#menu-toggle:checked) .icon-close {
   flex-direction: column-reverse;
   position: relative;
 }
-
-.hero-img {
+.banking-hero .hero-img {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -106,30 +102,29 @@ body:has(#menu-toggle:checked) .icon-close {
   overflow: hidden;
   margin-bottom: -90px;
 }
-.hero-img img {
+.banking-hero .hero-img img {
   width: 90%;
   transform: translateY(-120px);
 }
-
-.hero-desc {
+.banking-hero .hero-desc {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 0 20px 50px 20px;
 }
-.hero-desc h1 {
+.banking-hero .hero-desc h1 {
   font-size: 45px;
   text-align: center;
   font-weight: 400;
   color: hsl(233, 26%, 24%);
 }
-.hero-desc p {
+.banking-hero .hero-desc p {
   color: hsl(233, 8%, 62%);
   text-align: center;
   font-size: 14.5px;
 }
-.hero-desc a {
+.banking-hero .hero-desc a {
   background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
   color: hsl(0, 100%, 100%);
   border: none;
@@ -138,14 +133,18 @@ body:has(#menu-toggle:checked) .icon-close {
   transition: opacity 0.15s ease-out;
   font-weight: 500;
 }
-.hero-desc a:hover {
+.banking-hero .hero-desc a:hover {
   opacity: 0.6;
 }
-.hero-desc a {
+.banking-hero .hero-desc a {
   text-decoration: none;
+  transition: filter 0.2s ease-out;
 }
-.hero-desc a:hover {
-  opacity: 0.6;
+.banking-hero .hero-desc a:hover {
+  opacity: 1;
+}
+.banking-hero .hero-desc a:active {
+  filter: brightness(110%);
 }
 
 .banking-features {
@@ -270,6 +269,11 @@ body:has(#menu-toggle:checked) .icon-close {
   scroll-margin-top: 42px;
   gap: 30px;
 }
+.banking-footer .footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 .banking-footer .logo-footer {
   min-width: 200px;
   max-width: 300px;
@@ -300,6 +304,11 @@ body:has(#menu-toggle:checked) .icon-close {
 .banking-footer .nav-footer a:active {
   color: hsl(136, 64%, 51%);
 }
+.banking-footer .footer-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 .banking-footer .btn-invite {
   background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
   color: hsl(0, 100%, 100%);
@@ -326,4 +335,176 @@ body:has(#menu-toggle:checked) .icon-close {
 .banking-footer p {
   color: hsl(233, 8%, 62%);
   font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    justify-content: space-between;
+    padding: 15px 40px;
+  }
+  header .logo-header {
+    width: 180px;
+  }
+  header .btn-invite {
+    display: flex;
+    background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    color: hsl(0, 100%, 100%);
+    border: none;
+    border-radius: 20px;
+    padding: 12px 25px;
+    transition: opacity 0.15s ease-out;
+    font-weight: 500;
+  }
+  header .btn-invite:hover {
+    opacity: 0.6;
+  }
+  header .btn-invite {
+    font-size: 14px;
+  }
+  header .menu-btn {
+    display: none;
+  }
+  header .menu-btn .icon-hamburger {
+    display: none;
+  }
+  header .mobile-menu {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+  }
+  header .mobile-menu ul {
+    flex-direction: row;
+    padding: 0;
+    gap: 20px;
+  }
+  header .mobile-menu li a {
+    font-size: 15px;
+    padding: 0;
+    color: hsl(233, 8%, 62%);
+    -webkit-text-decoration: 4px underline;
+            text-decoration: 4px underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 22px;
+    transition: color 0.15s ease-out, text-decoration-color 0.15s ease-out, text-underline-offset 0.15s ease-out, -webkit-text-decoration 0.15s ease-out;
+    transition: color 0.15s ease-out, text-decoration 0.15s ease-out, text-decoration-color 0.15s ease-out, text-underline-offset 0.15s ease-out;
+    transition: color 0.15s ease-out, text-decoration 0.15s ease-out, text-decoration-color 0.15s ease-out, text-underline-offset 0.15s ease-out, -webkit-text-decoration 0.15s ease-out;
+  }
+  header .mobile-menu li a:hover {
+    color: hsl(233, 26%, 24%);
+    -webkit-text-decoration: 4px underline;
+            text-decoration: 4px underline;
+    text-decoration-color: hsl(136, 64%, 51%);
+    text-underline-offset: 27px;
+  }
+  body:has(#menu-toggle:checked) .mobile-menu {
+    display: none;
+  }
+  body:has(#menu-toggle:checked) .menu-overlay {
+    display: none;
+  }
+  body:has(#menu-toggle:checked) .icon-hamburger {
+    display: none;
+  }
+  body:has(#menu-toggle:checked) .icon-close {
+    display: none;
+  }
+  .banking-hero .hero-img {
+    background: url(src/img/bg-intro-desktop.svg);
+    background-position: 0 -350px;
+    background-repeat: no-repeat;
+  }
+  .banking-hero p {
+    line-height: 1.5;
+  }
+  .banking-hero .hero-desc {
+    padding: 0 40px 70px 40px;
+  }
+  .banking-hero .hero-desc a {
+    background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    color: hsl(0, 100%, 100%);
+    border: none;
+    border-radius: 30px;
+    padding: 15px 35px;
+    transition: opacity 0.15s ease-out;
+    font-weight: 500;
+  }
+  .banking-hero .hero-desc a:hover {
+    opacity: 0.6;
+  }
+  .banking-features {
+    scroll-margin-top: 70.8px;
+    padding: 70px 40px;
+    gap: 65px;
+  }
+  .banking-features .features-desc {
+    max-width: 550px;
+  }
+  .banking-features h2 {
+    align-self: flex-start;
+  }
+  .banking-features h3 {
+    align-self: flex-start;
+  }
+  .banking-features p {
+    text-align: left;
+    line-height: 1.4;
+  }
+  .banking-features ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .banking-features li {
+    max-width: 300px;
+  }
+  .banking-features img {
+    align-self: flex-start;
+  }
+  .banking-articles {
+    gap: 40px;
+    padding: 70px 40px;
+  }
+  .banking-articles h4 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
+  .banking-articles ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+  }
+  .banking-articles figure {
+    max-width: 300px;
+  }
+  .banking-footer {
+    padding: 70px 40px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .banking-footer .footer-brand {
+    gap: 45px;
+  }
+  .banking-footer .nav-footer a {
+    transition: color 0.2s ease-out;
+  }
+  .banking-footer .nav-footer a:hover {
+    color: hsl(136, 64%, 51%);
+  }
+  .banking-footer .footer-cta {
+    align-self: flex-end;
+    gap: 10px;
+  }
+  .banking-footer .footer-cta .btn-invite {
+    text-align: center;
+  }
+  .banking-footer .footer-cta .btn-invite:hover {
+    color: hsl(220, 16%, 96%);
+    filter: brightness(120%);
+  }
 }/*# sourceMappingURL=style.css.map */

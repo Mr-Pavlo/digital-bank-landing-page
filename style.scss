@@ -25,54 +25,53 @@ header {
         text-decoration: none;
     }
 
+    .menu-toggle {
+        display: none;
+    }
+
     .btn-invite {
         display: none;
     }
-}
 
-
-.menu-toggle {
-    display: none;
-}
-
-.menu-btn {
-    cursor: pointer;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-
-    .icon-close {
-        display: none;
-    }
-}
-
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 62px;
-    left: 24px;
-    right: 24px;
-    background-color: variables.$neutral-white;
-    border-radius: 4px;
-    z-index: 90;
-
-    ul {
-        list-style: none;
+    .menu-btn {
+        cursor: pointer;
+        margin-left: auto;
         display: flex;
-        flex-direction: column;
-        padding: 20px 0;
+        align-items: center;
+
+        .icon-close {
+            display: none;
+        }
     }
 
-    li a {
-        display: block;
-        text-align: center;
-        padding: 10px 0;
-        color: variables.$primary-blue;
-        text-decoration: none;
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 62px;
+        left: 24px;
+        right: 24px;
+        background-color: variables.$neutral-white;
+        border-radius: 4px;
+        z-index: 90;
 
-        &:active {
-            background-color: variables.$neutral-gray-600;
-            color: variables.$neutral-white;
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
+        li a {
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            color: variables.$primary-blue;
+            text-decoration: none;
+
+            &:active {
+                background-color: variables.$neutral-gray-600;
+                color: variables.$neutral-white;
+            }
         }
     }
 }
@@ -108,57 +107,53 @@ body:has(#menu-toggle:checked) {
     display: flex;
     flex-direction: column-reverse;
     position: relative;
-}
 
-.hero-img {
-    display: flex;
-    flex-direction: row;
+    .hero-img {
+        display: flex;
+        flex-direction: row;
 
-    justify-content: center;
-    background: url(src/img/bg-intro-mobile.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 -68px;
+        justify-content: center;
+        background: url(src/img/bg-intro-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 -68px;
     
-    overflow: hidden;
+        overflow: hidden;
 
-    margin-bottom: -90px;
+        margin-bottom: -90px;
     
-    img {
-        width: 90%;
-        transform: translateY(-120px);
-    }
-}
-
-.hero-desc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 0 20px 50px 20px;
-
-
-    h1 {
-        @include mixins.head(45px);
-    }
-    p {
-        @include mixins.paragraph(14.5px);
-    }
-    a {
-        @include mixins.button-invite(15px 30px, 25px);
-        text-decoration: none;
-        transition: filter 0.2s ease-out;
-        
-        &:hover {
-            opacity: 1;
-        
-        }
-        &:active {
-            filter: brightness(110%);
+        img {
+            width: 90%;
+            transform: translateY(-120px);
         }
     }
 
-    
+    .hero-desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0 20px 50px 20px;
+
+        h1 {
+            @include mixins.head(45px);
+        }
+        p {
+            @include mixins.paragraph(14.5px);
+        }
+        a {
+            @include mixins.button-invite(15px 30px, 25px);
+            text-decoration: none;
+            transition: filter 0.2s ease-out;
+        
+            &:hover {
+                opacity: 1;
+            }
+            &:active {
+                filter: brightness(110%);
+            }
+        }
+    }
 }
 
 .banking-features {
@@ -281,6 +276,12 @@ body:has(#menu-toggle:checked) {
     scroll-margin-top: 42px;
     gap: 30px;
 
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
     .logo-footer {
         min-width: 200px;
         max-width: 300px;
@@ -317,6 +318,12 @@ body:has(#menu-toggle:checked) {
         }
     }
 
+    .footer-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
     .btn-invite {
         @include mixins.button-invite(12px 32px, 30px);
         text-decoration: none;
@@ -325,7 +332,6 @@ body:has(#menu-toggle:checked) {
         
         &:hover {
             opacity: 1;
-            
         }
         &:active {
             filter: brightness(110%);
@@ -335,5 +341,193 @@ body:has(#menu-toggle:checked) {
     p {
         color: variables.$neutral-gray-600;
         font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        justify-content: space-between;
+        padding: 15px 40px;
+
+        .logo-header {
+            width: 180px;
+        }
+
+        .btn-invite {
+            display: flex;
+            @include mixins.button-invite(12px 25px, 20px);
+            font-size: 14px;
+        }
+
+        .menu-btn {
+            display: none;
+
+            .icon-hamburger {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+
+            ul {
+                flex-direction: row;
+                padding: 0;
+                gap: 20px;
+            }
+
+            li a {
+                font-size: 15px;
+                padding: 0;
+                color: variables.$neutral-gray-600;
+                text-decoration: 4px underline;
+                text-decoration-color: transparent;
+                text-underline-offset: 22px;
+                transition: 
+                    color 0.15s ease-out,
+                    text-decoration 0.15s ease-out,
+                    text-decoration-color 0.15s ease-out,
+                    text-underline-offset 0.15s ease-out;
+
+                &:hover {
+                    color: variables.$primary-blue;
+                    text-decoration: 4px underline;
+                    text-decoration-color: variables.$primary-green;
+                    text-underline-offset: 27px;
+                }
+            }
+        }
+    }
+
+    body:has(#menu-toggle:checked) {
+        .mobile-menu {
+            display: none;
+        }
+
+        .menu-overlay {
+            display: none;
+        }
+
+        .icon-hamburger {
+            display: none;
+        }
+
+        .icon-close {
+            display: none;
+        }
+    }
+
+    .banking-hero {
+        .hero-img {
+            background: url(src/img/bg-intro-desktop.svg);
+            background-position: 0 -350px;
+            background-repeat: no-repeat;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        .hero-desc {
+            padding: 0 40px 70px 40px;
+            a {
+                @include mixins.button-invite(15px 35px, 30px);
+            }
+        }
+    }
+
+    .banking-features {
+        scroll-margin-top: 70.8px;
+        padding: 70px 40px;
+        gap: 65px;
+
+        .features-desc {
+            max-width: 550px;
+        }
+
+        h2 {
+            align-self: flex-start;
+        }
+
+        h3 {
+            align-self: flex-start;
+        }
+
+        p {
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        li {
+            max-width: 300px;
+        }
+
+        img {
+            align-self: flex-start;
+        }
+    }
+
+    .banking-articles {
+        gap: 40px;
+        padding: 70px 40px;
+
+        h4 {
+            @include mixins.head(30px);
+        }
+
+        ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-evenly;
+        }
+
+        figure {
+            max-width: 300px;
+        }
+    }
+
+    .banking-footer {
+        padding: 70px 40px;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .footer-brand {
+            gap: 45px;
+        }
+
+        .nav-footer {
+            a {
+                transition: color 0.2s ease-out;
+                &:hover {
+                    color: variables.$primary-green;
+                }
+            }
+        }
+
+        .footer-cta {
+            align-self: flex-end;
+            gap: 10px;
+
+            .btn-invite {
+                text-align: center;
+
+                &:hover {
+                    color: variables.$neutral-gray-100;
+                    filter: brightness(120%);
+                }
+            }
+        }
     }
 }

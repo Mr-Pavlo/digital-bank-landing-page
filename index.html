@@ -21,9 +21,9 @@
                 alt="Digital Bank Logo"
             />
 
-            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+            <input class="menu-toggle" type="checkbox" id="menu-toggle" />
 
-            <label for="menu-toggle" class="menu-btn" aria-label="Open menu">
+            <label class="menu-btn" for="menu-toggle" aria-label="Open menu">
                 <img
                     class="icon-hamburger"
                     src="src/img/icon-hamburger.svg"
@@ -223,54 +223,56 @@
                 </div>
             </section>
         </main>
-        <footer class="banking-footer">
-            <img
-                class="logo-footer"
-                src="src/img/logo-light.svg"
-                alt="Digital Bank Logo"
-            />
-            <ul class="social-media">
-                <li>
-                    <a href="#"
-                        ><img
-                            class="social-icon"
-                            src="src/img/icon-facebook.svg"
-                            alt="icon facebook"
-                    /></a>
-                </li>
-                <li>
-                    <a href="#"
-                        ><img
-                            class="social-icon"
-                            src="src/img/icon-youtube.svg"
-                            alt="icon youtube"
-                    /></a>
-                </li>
-                <li>
-                    <a href="#"
-                        ><img
-                            class="social-icon"
-                            src="src/img/icon-twitter.svg"
-                            alt="icon twitter"
-                    /></a>
-                </li>
-                <li>
-                    <a href="#"
-                        ><img
-                            class="social-icon"
-                            src="src/img/icon-pinterest.svg"
-                            alt="icon pinterest"
-                    /></a>
-                </li>
-                <li>
-                    <a href="#"
-                        ><img
-                            class="social-icon"
-                            src="src/img/icon-instagram.svg"
-                            alt="icon instagram"
-                    /></a>
-                </li>
-            </ul>
+        <footer class="banking-footer" id="blog">
+            <div class="footer-brand">
+                <img
+                    class="logo-footer"
+                    src="src/img/logo-light.svg"
+                    alt="Digital Bank Logo"
+                />
+                <ul class="social-media">
+                    <li>
+                        <a href="#"
+                            ><img
+                                class="social-icon"
+                                src="src/img/icon-facebook.svg"
+                                alt="icon facebook"
+                        /></a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><img
+                                class="social-icon"
+                                src="src/img/icon-youtube.svg"
+                                alt="icon youtube"
+                        /></a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><img
+                                class="social-icon"
+                                src="src/img/icon-twitter.svg"
+                                alt="icon twitter"
+                        /></a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><img
+                                class="social-icon"
+                                src="src/img/icon-pinterest.svg"
+                                alt="icon pinterest"
+                        /></a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><img
+                                class="social-icon"
+                                src="src/img/icon-instagram.svg"
+                                alt="icon instagram"
+                        /></a>
+                    </li>
+                </ul>
+            </div>
             <ul class="nav-footer">
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>
@@ -279,8 +281,10 @@
                 <li><a href="#">Support</a></li>
                 <li><a href="#">Privacy Policy</a></li>
             </ul>
-            <a href="#" class="btn-invite">Request Invite</a>
-            <p>&copy; Digitalbank. All Rights Reserved</p>
+            <div class="footer-cta">
+                <a href="#" class="btn-invite">Request Invite</a>
+                <p>&copy; Digitalbank. All Rights Reserved</p>
+            </div>
         </footer>
     </body>
 </html>
