@@ -172,7 +172,7 @@ body:has(#menu-toggle:checked) {
     }
 
     h2 {
-        @include mixins.head(35px);
+        @include mixins.head(30px);
     }
 
     p {
@@ -201,7 +201,6 @@ body:has(#menu-toggle:checked) {
             margin-bottom: 10px;
         }
     }
-
 }
 
 .banking-articles {
@@ -213,7 +212,7 @@ body:has(#menu-toggle:checked) {
     scroll-margin-top: 42px;
 
     h4 {
-        @include mixins.head(25px);
+        @include mixins.head(30px);
     }
 
     ul {
@@ -248,9 +247,18 @@ body:has(#menu-toggle:checked) {
             border-radius: 5px 5px 0 0;
         }
 
-        h5 {
+        a {
             @include mixins.head(16px);
             text-align: left;
+            text-decoration: none;
+            transition: color 0.15s ease-out;
+
+            &:active {
+                color: variables.$primary-green;
+            }
+            &:hover {
+                color: variables.$primary-green;
+            }
         }
 
         span {
@@ -262,7 +270,7 @@ body:has(#menu-toggle:checked) {
             @include mixins.paragraph(14.5px);
             text-align: left;
             max-width: 320px;
-            padding-bottom: 20px;;
+            padding-bottom: 20px;
         }
     }
 }
@@ -322,12 +330,15 @@ body:has(#menu-toggle:checked) {
         display: flex;
         flex-direction: column;
         gap: 30px;
+        
     }
 
     .btn-invite {
         @include mixins.button-invite(12px 32px, 30px);
         text-decoration: none;
         margin-top: 10px;
+        text-align: center;
+        align-self: flex-end;
         transition: filter 0.2s ease-out;
         
         &:hover {
@@ -348,6 +359,7 @@ body:has(#menu-toggle:checked) {
     header {
         justify-content: space-between;
         padding: 15px 40px;
+        transition: padding 0.1s ease-out;
 
         .logo-header {
             width: 180px;
@@ -388,17 +400,33 @@ body:has(#menu-toggle:checked) {
                 text-decoration: 4px underline;
                 text-decoration-color: transparent;
                 text-underline-offset: 22px;
-                transition: 
-                    color 0.15s ease-out,
-                    text-decoration 0.15s ease-out,
-                    text-decoration-color 0.15s ease-out,
-                    text-underline-offset 0.15s ease-out;
+                text-align: center;
+
+                position: relative;
+                display: block;
+
+                transition: color 0.2s ease-out;
 
                 &:hover {
                     color: variables.$primary-blue;
-                    text-decoration: 4px underline;
-                    text-decoration-color: variables.$primary-green;
-                    text-underline-offset: 27px;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 4px;
+                    left: 0;
+                    bottom: -27px;                    
+                    background: linear-gradient(10deg, variables.$primary-cyan 0%, variables.$primary-green 100%);
+
+                    transform: scaleY(0);
+                    transform-origin: top;
+                    transition: transform 0.1s ease-out;
+                }
+
+                &:hover::after {
+                    transform: scaleY(1);
                 }
             }
         }
@@ -435,6 +463,10 @@ body:has(#menu-toggle:checked) {
 
         .hero-desc {
             padding: 0 40px 70px 40px;
+
+            h1 {
+                @include mixins.head(50px);
+            }
             a {
                 @include mixins.button-invite(15px 35px, 30px);
             }
@@ -445,16 +477,19 @@ body:has(#menu-toggle:checked) {
         scroll-margin-top: 70.8px;
         padding: 70px 40px;
         gap: 65px;
+        position: relative;
 
         .features-desc {
             max-width: 550px;
         }
 
         h2 {
+            @include mixins.head(38px);
             align-self: flex-start;
         }
 
         h3 {
+            @include mixins.head(25px);
             align-self: flex-start;
         }
 
@@ -467,23 +502,24 @@ body:has(#menu-toggle:checked) {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-evenly;
+
+            img {
+                align-self: flex-start;
+            }
         }
 
         li {
             max-width: 300px;
         }
-
-        img {
-            align-self: flex-start;
-        }
     }
 
     .banking-articles {
+        scroll-margin-top: 70.8px;
         gap: 40px;
         padding: 70px 40px;
 
         h4 {
-            @include mixins.head(30px);
+            @include mixins.head(38px);
         }
 
         ul {
@@ -521,12 +557,355 @@ body:has(#menu-toggle:checked) {
             gap: 10px;
 
             .btn-invite {
-                text-align: center;
-
                 &:hover {
                     color: variables.$neutral-gray-100;
                     filter: brightness(120%);
                 }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        padding: 20px 80px;
+        transition: padding 0.1s ease-out, gap 0.1s ease-out;
+
+        .logo-header {
+            width: 200px;
+        }
+
+        .btn-invite {
+            display: flex;
+            @include mixins.button-invite(12px 35px, 30px);
+            font-size: 16px;
+        }
+
+        .mobile-menu {
+            ul {
+                gap: 35px;
+            }
+
+            li a {
+                font-size: 16px;
+
+                &::after {
+                    height: 5px;
+                    bottom: -32px;
+                }
+            }
+        }
+    }
+
+    .banking-hero {
+        flex-direction: row;
+        align-items: center;
+        padding: 83.2px 0 0 80px;
+        gap: 30px;
+        justify-content: space-between;
+
+        .hero-desc {
+            width: 500px;
+            padding: 0;
+
+            h1 {
+                @include mixins.head(55px);
+                text-align: left;
+            }
+            p {
+                @include mixins.paragraph(16px);
+                width: 400px;
+                text-align: left;
+                align-self: flex-start;
+                
+            }
+            a {
+                align-self: flex-start;
+            }
+        }
+
+        .hero-img {
+            background-size: auto;
+            background-position: -70px -270px;
+            
+            img {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                transform: translateY(-20px) translateX(80px);
+            }
+        }
+    }
+
+    .banking-features {
+        scroll-margin-top: 83.2px;
+        padding: 70px 80px;
+
+        .features-desc {
+            max-width: 560px;
+        }
+
+        h2 {
+            @include mixins.head(40px);
+        }
+
+        p {
+            @include mixins.paragraph(16px);
+            text-align: left;
+        }
+
+        h3 {
+            @include mixins.head(30px);
+        }
+
+        ul {
+            gap: 50px;
+
+            img {
+                width: 20%;
+            }
+        }
+
+        li {
+            max-width: 45%;
+        }
+    }
+
+    .banking-articles {
+        scroll-margin-top: 83.2px;
+        padding: 70px 80px;
+
+        h4 {
+            @include mixins.head(40px);
+        }
+
+        ul {
+            gap: 20px;
+        }
+
+        figure {
+            max-width: 400px;
+            
+            a {
+                @include mixins.head(18px);
+            }
+
+            span {
+                @include mixins.paragraph(12px);
+                text-align: left;
+            }
+
+            p {
+                @include mixins.paragraph(16px);
+                line-height: 1.5;
+                text-align: left;
+                max-width: 100%;
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    .banking-footer {
+        scroll-margin-top: 83.2px;
+        padding: 40px 80px;
+        justify-content: flex-start;
+        gap: 60px;
+
+        .footer-brand {
+            gap: 20px;
+        }
+
+        .nav-footer {
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 100px;
+
+            li { 
+                align-self: flex-start;
+                padding-right: 20px;
+            }
+        }
+
+        .footer-cta {
+            margin-left: auto
+        }
+
+        .btn-invite {
+            @include mixins.button-invite(10px 25px, 30px);
+            align-self: flex-end;
+            transition: filter 0.2s ease-out;
+            
+            &:hover {
+                opacity: 1.0;
+                color: variables.$neutral-gray-100;
+                filter: brightness(120%);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    header {
+        padding: 20px 100px;
+
+        .logo-header {
+            width: 320px;
+        }
+
+        .btn-invite {
+            @include mixins.button-invite(15px 40px, 30px);
+            font-size: 20px;
+        }
+
+        .mobile-menu {
+            ul {
+                gap: 55px;
+            }
+
+            li a {
+                font-size: 20px;
+
+                &::after {
+                    height: 6px;
+                    bottom: -35px;
+                }
+            }
+        }
+    }
+
+    .banking-hero {
+        scroll-margin-top: 94px;
+        padding: 94px 0 0 100px;
+        gap: 30px;
+
+        .hero-desc {
+            width: 500px;
+            padding: 0;
+            gap: 25px;
+
+            h1 {
+                @include mixins.head(65px);
+                text-align: left;
+            }
+
+            p {
+                @include mixins.paragraph(18px);
+                text-align: left;
+            }
+
+            a {
+                @include mixins.button-invite(15px 40px, 30px);
+                font-size: 20px;
+            }
+        }
+
+        .hero-img {
+            background-size: auto;
+            background-position: -70px -200px;
+            margin-bottom: -180px;
+
+            img {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                transform: translateY(-85px) translateX(120px);
+            }
+        }
+    }
+
+    .banking-features {
+        scroll-margin-top: 94px;
+        padding: 80px 100px;
+
+        h2 {
+            @include mixins.head(45px);
+            text-align: left;
+        }
+
+        ul {
+            gap: 50px;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+
+            img {
+                width: 30%;
+            }
+
+            li {
+                min-width: 250px;
+                max-width: 400px;
+                align-items: start;
+            }
+
+            p {
+                max-width: 100%;
+            }
+        }
+
+        h3 {
+            @include mixins.head(25px);
+            align-self: flex-start;
+        }
+    }
+
+    .banking-articles {
+        scroll-margin-top: 94px;
+        padding: 80px 100px;
+
+        h4 {
+            @include mixins.head(40px);
+        }
+
+        ul {
+            gap: 0;
+            flex-wrap: nowrap;
+            gap: 20px;
+        }
+
+        figure {
+            min-width: 280px;
+            max-width: 400px;
+            
+
+            img {
+                min-height: 160px;
+                max-height: 180px;
+            }
+            
+            a {
+                @include mixins.head(20px);
+            }
+
+            span {
+                @include mixins.paragraph(13px);
+                text-align: left;
+            }
+        }
+    }
+
+    .banking-footer {
+        scroll-margin-top: 94px;
+        padding: 40px 100px;
+        gap: 200px;
+
+        .footer-brand {
+            gap: 60px;
+        }
+
+        .nav-footer {
+            height: 125px;
+            gap: 28px;
+        }
+
+        .btn-invite {
+            @include mixins.button-invite(15px 40px, 30px);
+            align-self: flex-end;
+            transition: filter 0.2s ease-out;
+
+            &:hover {
+                opacity: 1.0;
+                color: variables.$neutral-gray-100;
+                filter: brightness(120%);
             }
         }
     }

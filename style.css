@@ -132,6 +132,7 @@ body:has(#menu-toggle:checked) .icon-close {
   padding: 15px 30px;
   transition: opacity 0.15s ease-out;
   font-weight: 500;
+  text-align: center;
 }
 .banking-hero .hero-desc a:hover {
   opacity: 0.6;
@@ -162,7 +163,7 @@ body:has(#menu-toggle:checked) .icon-close {
   align-items: center;
 }
 .banking-features h2 {
-  font-size: 35px;
+  font-size: 30px;
   text-align: center;
   font-weight: 400;
   color: hsl(233, 26%, 24%);
@@ -204,7 +205,7 @@ body:has(#menu-toggle:checked) .icon-close {
   scroll-margin-top: 42px;
 }
 .banking-articles h4 {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
   font-weight: 400;
   color: hsl(233, 26%, 24%);
@@ -238,12 +239,20 @@ body:has(#menu-toggle:checked) .icon-close {
      object-fit: cover;
   border-radius: 5px 5px 0 0;
 }
-.banking-articles figure h5 {
+.banking-articles figure a {
   font-size: 16px;
   text-align: center;
   font-weight: 400;
   color: hsl(233, 26%, 24%);
   text-align: left;
+  text-decoration: none;
+  transition: color 0.15s ease-out;
+}
+.banking-articles figure a:active {
+  color: hsl(136, 64%, 51%);
+}
+.banking-articles figure a:hover {
+  color: hsl(136, 64%, 51%);
 }
 .banking-articles figure span {
   color: hsl(233, 8%, 62%);
@@ -317,6 +326,7 @@ body:has(#menu-toggle:checked) .icon-close {
   padding: 12px 32px;
   transition: opacity 0.15s ease-out;
   font-weight: 500;
+  text-align: center;
 }
 .banking-footer .btn-invite:hover {
   opacity: 0.6;
@@ -324,6 +334,8 @@ body:has(#menu-toggle:checked) .icon-close {
 .banking-footer .btn-invite {
   text-decoration: none;
   margin-top: 10px;
+  text-align: center;
+  align-self: flex-end;
   transition: filter 0.2s ease-out;
 }
 .banking-footer .btn-invite:hover {
@@ -341,6 +353,7 @@ body:has(#menu-toggle:checked) .icon-close {
   header {
     justify-content: space-between;
     padding: 15px 40px;
+    transition: padding 0.1s ease-out;
   }
   header .logo-header {
     width: 180px;
@@ -354,6 +367,7 @@ body:has(#menu-toggle:checked) .icon-close {
     padding: 12px 25px;
     transition: opacity 0.15s ease-out;
     font-weight: 500;
+    text-align: center;
   }
   header .btn-invite:hover {
     opacity: 0.6;
@@ -388,16 +402,28 @@ body:has(#menu-toggle:checked) .icon-close {
             text-decoration: 4px underline;
     text-decoration-color: transparent;
     text-underline-offset: 22px;
-    transition: color 0.15s ease-out, text-decoration-color 0.15s ease-out, text-underline-offset 0.15s ease-out, -webkit-text-decoration 0.15s ease-out;
-    transition: color 0.15s ease-out, text-decoration 0.15s ease-out, text-decoration-color 0.15s ease-out, text-underline-offset 0.15s ease-out;
-    transition: color 0.15s ease-out, text-decoration 0.15s ease-out, text-decoration-color 0.15s ease-out, text-underline-offset 0.15s ease-out, -webkit-text-decoration 0.15s ease-out;
+    text-align: center;
+    position: relative;
+    display: block;
+    transition: color 0.2s ease-out;
   }
   header .mobile-menu li a:hover {
     color: hsl(233, 26%, 24%);
-    -webkit-text-decoration: 4px underline;
-            text-decoration: 4px underline;
-    text-decoration-color: hsl(136, 64%, 51%);
-    text-underline-offset: 27px;
+  }
+  header .mobile-menu li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: -27px;
+    background: linear-gradient(10deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.1s ease-out;
+  }
+  header .mobile-menu li a:hover::after {
+    transform: scaleY(1);
   }
   body:has(#menu-toggle:checked) .mobile-menu {
     display: none;
@@ -422,6 +448,12 @@ body:has(#menu-toggle:checked) .icon-close {
   .banking-hero .hero-desc {
     padding: 0 40px 70px 40px;
   }
+  .banking-hero .hero-desc h1 {
+    font-size: 50px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
   .banking-hero .hero-desc a {
     background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
     color: hsl(0, 100%, 100%);
@@ -430,6 +462,7 @@ body:has(#menu-toggle:checked) .icon-close {
     padding: 15px 35px;
     transition: opacity 0.15s ease-out;
     font-weight: 500;
+    text-align: center;
   }
   .banking-hero .hero-desc a:hover {
     opacity: 0.6;
@@ -438,14 +471,23 @@ body:has(#menu-toggle:checked) .icon-close {
     scroll-margin-top: 70.8px;
     padding: 70px 40px;
     gap: 65px;
+    position: relative;
   }
   .banking-features .features-desc {
     max-width: 550px;
   }
   .banking-features h2 {
+    font-size: 38px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
     align-self: flex-start;
   }
   .banking-features h3 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
     align-self: flex-start;
   }
   .banking-features p {
@@ -457,18 +499,19 @@ body:has(#menu-toggle:checked) .icon-close {
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
+  .banking-features ul img {
+    align-self: flex-start;
+  }
   .banking-features li {
     max-width: 300px;
   }
-  .banking-features img {
-    align-self: flex-start;
-  }
   .banking-articles {
+    scroll-margin-top: 70.8px;
     gap: 40px;
     padding: 70px 40px;
   }
   .banking-articles h4 {
-    font-size: 30px;
+    font-size: 38px;
     text-align: center;
     font-weight: 400;
     color: hsl(233, 26%, 24%);
@@ -500,10 +543,383 @@ body:has(#menu-toggle:checked) .icon-close {
     align-self: flex-end;
     gap: 10px;
   }
-  .banking-footer .footer-cta .btn-invite {
+  .banking-footer .footer-cta .btn-invite:hover {
+    color: hsl(220, 16%, 96%);
+    filter: brightness(120%);
+  }
+}
+@media screen and (min-width: 1024px) {
+  header {
+    padding: 20px 80px;
+    transition: padding 0.1s ease-out, gap 0.1s ease-out;
+  }
+  header .logo-header {
+    width: 200px;
+  }
+  header .btn-invite {
+    display: flex;
+    background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    color: hsl(0, 100%, 100%);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 35px;
+    transition: opacity 0.15s ease-out;
+    font-weight: 500;
     text-align: center;
   }
-  .banking-footer .footer-cta .btn-invite:hover {
+  header .btn-invite:hover {
+    opacity: 0.6;
+  }
+  header .btn-invite {
+    font-size: 16px;
+  }
+  header .mobile-menu ul {
+    gap: 35px;
+  }
+  header .mobile-menu li a {
+    font-size: 16px;
+  }
+  header .mobile-menu li a::after {
+    height: 5px;
+    bottom: -32px;
+  }
+  .banking-hero {
+    flex-direction: row;
+    align-items: center;
+    padding: 83.2px 0 0 80px;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .banking-hero .hero-desc {
+    width: 500px;
+    padding: 0;
+  }
+  .banking-hero .hero-desc h1 {
+    font-size: 55px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+    text-align: left;
+  }
+  .banking-hero .hero-desc p {
+    color: hsl(233, 8%, 62%);
+    text-align: center;
+    font-size: 16px;
+    width: 400px;
+    text-align: left;
+    align-self: flex-start;
+  }
+  .banking-hero .hero-desc a {
+    align-self: flex-start;
+  }
+  .banking-hero .hero-img {
+    background-size: auto;
+    background-position: -70px -270px;
+  }
+  .banking-hero .hero-img img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    transform: translateY(-20px) translateX(80px);
+  }
+  .banking-features {
+    scroll-margin-top: 83.2px;
+    padding: 70px 80px;
+  }
+  .banking-features .features-desc {
+    max-width: 560px;
+  }
+  .banking-features h2 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
+  .banking-features p {
+    color: hsl(233, 8%, 62%);
+    text-align: center;
+    font-size: 16px;
+    text-align: left;
+  }
+  .banking-features h3 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
+  .banking-features ul {
+    gap: 50px;
+  }
+  .banking-features ul img {
+    width: 20%;
+  }
+  .banking-features li {
+    max-width: 45%;
+  }
+  .banking-articles {
+    scroll-margin-top: 83.2px;
+    padding: 70px 80px;
+  }
+  .banking-articles h4 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
+  .banking-articles ul {
+    gap: 20px;
+  }
+  .banking-articles figure {
+    max-width: 400px;
+  }
+  .banking-articles figure a {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
+  .banking-articles figure span {
+    color: hsl(233, 8%, 62%);
+    text-align: center;
+    font-size: 12px;
+    text-align: left;
+  }
+  .banking-articles figure p {
+    color: hsl(233, 8%, 62%);
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 100%;
+    padding-bottom: 20px;
+  }
+  .banking-footer {
+    scroll-margin-top: 83.2px;
+    padding: 40px 80px;
+    justify-content: flex-start;
+    gap: 60px;
+  }
+  .banking-footer .footer-brand {
+    gap: 20px;
+  }
+  .banking-footer .nav-footer {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100px;
+  }
+  .banking-footer .nav-footer li {
+    align-self: flex-start;
+    padding-right: 20px;
+  }
+  .banking-footer .footer-cta {
+    margin-left: auto;
+  }
+  .banking-footer .btn-invite {
+    background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    color: hsl(0, 100%, 100%);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: opacity 0.15s ease-out;
+    font-weight: 500;
+    text-align: center;
+  }
+  .banking-footer .btn-invite:hover {
+    opacity: 0.6;
+  }
+  .banking-footer .btn-invite {
+    align-self: flex-end;
+    transition: filter 0.2s ease-out;
+  }
+  .banking-footer .btn-invite:hover {
+    opacity: 1;
+    color: hsl(220, 16%, 96%);
+    filter: brightness(120%);
+  }
+}
+@media screen and (min-width: 1440px) {
+  header {
+    padding: 20px 100px;
+  }
+  header .logo-header {
+    width: 320px;
+  }
+  header .btn-invite {
+    background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    color: hsl(0, 100%, 100%);
+    border: none;
+    border-radius: 30px;
+    padding: 15px 40px;
+    transition: opacity 0.15s ease-out;
+    font-weight: 500;
+    text-align: center;
+  }
+  header .btn-invite:hover {
+    opacity: 0.6;
+  }
+  header .btn-invite {
+    font-size: 20px;
+  }
+  header .mobile-menu ul {
+    gap: 55px;
+  }
+  header .mobile-menu li a {
+    font-size: 20px;
+  }
+  header .mobile-menu li a::after {
+    height: 6px;
+    bottom: -35px;
+  }
+  .banking-hero {
+    scroll-margin-top: 94px;
+    padding: 94px 0 0 100px;
+    gap: 30px;
+  }
+  .banking-hero .hero-desc {
+    width: 500px;
+    padding: 0;
+    gap: 25px;
+  }
+  .banking-hero .hero-desc h1 {
+    font-size: 65px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+    text-align: left;
+  }
+  .banking-hero .hero-desc p {
+    color: hsl(233, 8%, 62%);
+    text-align: center;
+    font-size: 18px;
+    text-align: left;
+  }
+  .banking-hero .hero-desc a {
+    background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    color: hsl(0, 100%, 100%);
+    border: none;
+    border-radius: 30px;
+    padding: 15px 40px;
+    transition: opacity 0.15s ease-out;
+    font-weight: 500;
+    text-align: center;
+  }
+  .banking-hero .hero-desc a:hover {
+    opacity: 0.6;
+  }
+  .banking-hero .hero-desc a {
+    font-size: 20px;
+  }
+  .banking-hero .hero-img {
+    background-size: auto;
+    background-position: -70px -200px;
+    margin-bottom: -180px;
+  }
+  .banking-hero .hero-img img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    transform: translateY(-85px) translateX(120px);
+  }
+  .banking-features {
+    scroll-margin-top: 94px;
+    padding: 80px 100px;
+  }
+  .banking-features h2 {
+    font-size: 45px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+    text-align: left;
+  }
+  .banking-features ul {
+    gap: 50px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  .banking-features ul img {
+    width: 30%;
+  }
+  .banking-features ul li {
+    min-width: 250px;
+    max-width: 400px;
+    align-items: start;
+  }
+  .banking-features ul p {
+    max-width: 100%;
+  }
+  .banking-features h3 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+    align-self: flex-start;
+  }
+  .banking-articles {
+    scroll-margin-top: 94px;
+    padding: 80px 100px;
+  }
+  .banking-articles h4 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
+  .banking-articles ul {
+    gap: 0;
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+  .banking-articles figure {
+    min-width: 280px;
+    max-width: 400px;
+  }
+  .banking-articles figure img {
+    min-height: 160px;
+    max-height: 180px;
+  }
+  .banking-articles figure a {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    color: hsl(233, 26%, 24%);
+  }
+  .banking-articles figure span {
+    color: hsl(233, 8%, 62%);
+    text-align: center;
+    font-size: 13px;
+    text-align: left;
+  }
+  .banking-footer {
+    scroll-margin-top: 94px;
+    padding: 40px 100px;
+    gap: 200px;
+  }
+  .banking-footer .footer-brand {
+    gap: 60px;
+  }
+  .banking-footer .nav-footer {
+    height: 125px;
+    gap: 28px;
+  }
+  .banking-footer .btn-invite {
+    background: linear-gradient(15deg, hsl(192, 69%, 51%) 0%, hsl(136, 64%, 51%) 100%);
+    color: hsl(0, 100%, 100%);
+    border: none;
+    border-radius: 30px;
+    padding: 15px 40px;
+    transition: opacity 0.15s ease-out;
+    font-weight: 500;
+    text-align: center;
+  }
+  .banking-footer .btn-invite:hover {
+    opacity: 0.6;
+  }
+  .banking-footer .btn-invite {
+    align-self: flex-end;
+    transition: filter 0.2s ease-out;
+  }
+  .banking-footer .btn-invite:hover {
+    opacity: 1;
     color: hsl(220, 16%, 96%);
     filter: brightness(120%);
   }
