@@ -866,7 +866,6 @@ body:has(#menu-toggle:checked) .icon-close {
     color: hsl(233, 26%, 24%);
   }
   .banking-articles ul {
-    gap: 0;
     flex-wrap: nowrap;
     gap: 10px;
   }
